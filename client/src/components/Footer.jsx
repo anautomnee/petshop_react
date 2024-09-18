@@ -3,7 +3,7 @@ import { FooterCard } from "./FooterCard";
 
 export const Footer = () => {
     return <Container>
-        <Typography mb={10} variant="h1">Contacts</Typography>
+        <Typography mb={10} variant="h2">Contacts</Typography>
         <Stack gap={4}>
             <Stack direction="row" gap={4}>
                 <FooterCard title="Phone" body="+49 30 915-88492" type="lg" />
@@ -20,7 +20,7 @@ export const Footer = () => {
                 <FooterCard title="Address" body="Wallstraẞe 9-13, 10179 Berlin, Deutschland" type="lg" />
                 <FooterCard title="Working Hours" body="24 hours a day" type="sm" />
             </Stack>
-            <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.2302640007133!2d13.4046434!3d52.51117179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e27db3d613b%3A0x8fa6d253500b289f!2sWallstra%C3%9Fe%209-13%2C%2010179%20Berlin%2C%20Germany!5e0!3m2!1sen!2sru!4v1726683909661!5m2!1sen!2sru" width="100%" height="350" style={{ borderRadius: 20, border: "none", marginBottom: 80 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.2302640007133!2d13.4046434!3d52.51117179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e27db3d613b%3A0x8fa6d253500b289f!2sWallstra%C3%9Fe%209-13%2C%2010179%20Berlin%2C%20Germany!5e0!3m2!1sen!2sru!4v1726683909661!5m2!1sen!2sru" width="100%" height="350" style={{ borderRadius: 20, border: "none", marginBottom: 80 }} loading="lazy" ></iframe>
         </Stack>
     </Container>
 }

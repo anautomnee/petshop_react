@@ -7,13 +7,20 @@ export const theme = createTheme({
         fontSize: 20,
         fontWeight: 500,
         h1: {
-            fontSize: 64,
+            fontSize: 96,
             fontWeight: 700
         },
         h2: {
+            fontSize: 64,
+            fontWeight: 700
+        },
+        h3: {
             fontSize: 40,
             fontWeight: 600
         },
+        button: {
+            textTransform: 'none'
+        }
     },
     components: {
         MuiCssBaseline: {

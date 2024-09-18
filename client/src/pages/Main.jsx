@@ -1,10 +1,12 @@
+import { CategoriesPreview } from "../components/CategoriesPreview"
+import { MainBanner } from "../components/MainBanner"
 import { MainLayout } from "../layouts/MainLayout"
 
 export const Main = () => {
     return <>
         <MainLayout>
-            <div style={{ backgroundColor: "gray" }}> <p>In progress</p></div>
-
+            <MainBanner />
+            <CategoriesPreview />
         </MainLayout>
     </>
 }
