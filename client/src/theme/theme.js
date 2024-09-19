@@ -1,4 +1,4 @@
-import { createTheme, styled } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import Montserrat from "../static/Montserrat-VariableFont_wght.ttf"
 
 export const theme = createTheme({
@@ -54,16 +54,3 @@ export const theme = createTheme({
       }
     },
   });
-
-
-  export const AllCategoriesBtn = styled('button')({
-    border: "1px solid #DDDDDD",
-    backgroundColor: "#FFFFFF",
-    height: "fit-content",
-    minWidth: 140,
-    padding: "8px 16px",
-    color: "#8B8B8B",
-    borderRadius: 6,
-    fontSize: 16,
-    cursor: "pointer"
-})

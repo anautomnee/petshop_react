@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material"
-import { AllCategoriesBtn } from "../../theme/theme"
+import { AllCategoriesBtn } from "../../theme/customComponents"
 import { useSelector } from "react-redux"
 import { ProductCard } from "../ProductCard";
 

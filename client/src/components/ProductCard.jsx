@@ -1,5 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
+import { SaleBadge } from "../theme/customComponents"
 
 export const ProductCard = ({ product }) => {
     return <Link to={`categories/${product.id}`}>
@@ -13,7 +14,8 @@ export const ProductCard = ({ product }) => {
                 transform: "scale(1.02)"
             }
         }}>
-            <Stack direction="column" gap={2}>
+            <Stack direction="column" gap={2} sx={{ position: "relative" }}>
+                {product.discont_price && <SaleBadge>-{product.discont_price}%</SaleBadge>}
                 <Box sx={{
                     width: 314,
                     height: 284,

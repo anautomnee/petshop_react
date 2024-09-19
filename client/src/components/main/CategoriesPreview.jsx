@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { CategoryCard } from "../CategoryCard";
-import { AllCategoriesBtn } from "../../theme/theme";
+import { AllCategoriesBtn } from "../../theme/customComponents";
 
 export const CategoriesPreview = () => {
     const { categories } = useSelector(state => state.categories)
