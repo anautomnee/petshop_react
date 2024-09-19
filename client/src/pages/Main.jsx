@@ -1,4 +1,4 @@
-import { CategoriesPreview, MainBanner } from "../components"
+import { CategoriesPreview, MainBanner, FirstOrderBanner } from "../components"
 import { MainLayout } from "../layouts/MainLayout"
 
 export const Main = () => {
@@ -6,6 +6,7 @@ export const Main = () => {
         <MainLayout>
             <MainBanner />
             <CategoriesPreview />
+            <FirstOrderBanner />
         </MainLayout>
     </>
 }

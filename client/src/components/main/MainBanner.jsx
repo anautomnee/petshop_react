@@ -11,7 +11,7 @@ export const MainBanner = () => {
             padding: "80px 40px",
             mb: 10
         }}>
-            <Typography mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
+            <Typography sx={{ maxWidth: 1200 }} mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
             <Button variant="contained" sx={{ padding: "14px 56px" }}>Check out</Button>
         </Box>
     </div>

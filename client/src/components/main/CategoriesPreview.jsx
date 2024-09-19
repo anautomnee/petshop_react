@@ -27,6 +27,6 @@ export const CategoriesPreview = () => {
         </Stack>
         <Stack direction="row" gap={4} mb={13}>
             {four_categories.map(category =>
-                <CategoryPreviewCard key={category.id} title={category.title} img={`http://localhost:3333${category.image}`} />)}</Stack>
+                <CategoryPreviewCard key={category.id} category={category} />)}</Stack>
     </div>
 }

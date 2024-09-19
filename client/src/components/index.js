@@ -1,2 +1,2 @@
 export { Header, Footer } from "./layout";
-export { CategoriesPreview, MainBanner } from "./main";
+export { CategoriesPreview, MainBanner, FirstOrderBanner } from "./main";

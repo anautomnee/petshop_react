@@ -1,4 +1,4 @@
-import { Badge, Stack, Toolbar, Typography } from "@mui/material"
+import { Badge, Stack, Toolbar } from "@mui/material"
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
@@ -14,10 +14,10 @@ export const Header = () => {
                 </NavLink>
 
                 <Stack direction="row" gap={4}>
-                    <NavLink to="/"><Typography>Main page</Typography></NavLink>
-                    <NavLink to="/categories">Categories</NavLink>
-                    <NavLink to="/products">All products</NavLink>
-                    <NavLink to="/sales">All sales</NavLink>
+                    <NavLink className="navbar__link" to="/">Main page</NavLink>
+                    <NavLink className="navbar__link" to="/categories">Categories</NavLink>
+                    <NavLink className="navbar__link" to="/products">All products</NavLink>
+                    <NavLink className="navbar__link" to="/sales">All sales</NavLink>
                 </Stack>
 
                 <NavLink to="/cart">
