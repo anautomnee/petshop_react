@@ -1,19 +1,7 @@
-import { Box, Stack, Typography } from "@mui/material"
-import { styled } from '@mui/material/styles';
+import { Box, Stack, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { CategoryPreviewCard } from "./CategoryPreviewCard";
-
-const AllCategoriesBtn = styled('button')({
-    border: "1px solid #DDDDDD",
-    backgroundColor: "#FFFFFF",
-    height: "fit-content",
-    minWidth: 140,
-    padding: "8px 16px",
-    color: "#8B8B8B",
-    borderRadius: 6,
-    fontSize: 16,
-    cursor: "pointer"
-})
+import { CategoryCard } from "../CategoryCard";
+import { AllCategoriesBtn } from "../../theme/theme";
 
 export const CategoriesPreview = () => {
     const { categories } = useSelector(state => state.categories)
@@ -27,6 +15,7 @@ export const CategoriesPreview = () => {
         </Stack>
         <Stack direction="row" gap={4} mb={13}>
             {four_categories.map(category =>
-                <CategoryPreviewCard key={category.id} category={category} />)}</Stack>
+                <CategoryCard key={category.id} category={category} />)}
+        </Stack>
     </div>
 }

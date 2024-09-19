@@ -3,7 +3,7 @@ import { FooterCard } from "./FooterCard";
 
 export const Footer = () => {
     return <div className="container">
-        <Typography mb={10} variant="h2">Contacts</Typography>
+        <Typography mb={10} variant="h2">Contact</Typography>
         <Stack gap={4}>
             <Stack direction="row" gap={4}>
                 <FooterCard title="Phone" body="+49 30 915-88492" type="lg" />

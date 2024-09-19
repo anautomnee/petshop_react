@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 
-export const CategoryPreviewCard = ({ category }) => {
+export const CategoryCard = ({ category }) => {
     return <Link to={`categories/${category.id}`}>
         <Stack direction="column" alignItems="center" gap={2}>
             <Box sx={{

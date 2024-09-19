@@ -57,3 +57,10 @@ a {
   color: #FFFFFF;
   font-size: 20px;
 }
+
+.shortenText {
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 252px;  
+  white-space: nowrap;
+}
