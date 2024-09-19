@@ -1,8 +1,8 @@
-import { Badge, Container, Stack, Toolbar, Typography } from "@mui/material"
+import { Badge, Stack, Toolbar, Typography } from "@mui/material"
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
-    return <Container>
+    return <div className="container">
         <Toolbar>
             <Stack mb={3} mt={3} direction="row" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
                 <NavLink to="/">
@@ -32,5 +32,5 @@ export const Header = () => {
                 </NavLink>
             </Stack>
         </Toolbar>
-    </Container >
+    </div >
 }

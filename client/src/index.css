@@ -13,3 +13,11 @@ a {
   color: #282828;
 }
 
+/* .active {
+  color: #0D50FF;
+} */
+
+.container {
+  width: 1360px;
+  margin: 0 auto;
+}
