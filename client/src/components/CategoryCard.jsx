@@ -1,14 +1,16 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 
+const API_URL = "http://localhost:3333"
+
 export const CategoryCard = ({ category }) => {
-    return <Link to={`categories/${category.id}`}>
+    return <Link to={`${category.id}`}>
         <Stack direction="column" alignItems="center" gap={2}>
             <Box sx={{
                 width: 316,
                 height: 350,
                 borderRadius: 3,
-                backgroundImage: `url('http://localhost:3333${category.image}')`,
+                backgroundImage: `url('${API_URL}${category.image}')`,
                 backgroundSize: "contain",
                 transition: "transform 0.4s",
                 "&:hover": {

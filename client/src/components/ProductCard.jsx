@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { SaleBadge } from "../theme/customComponents"
 
 export const ProductCard = ({ product }) => {
-    return <Link to={`categories/${product.id}`}>
+    return <Link to={`/products/${product.id}`}>
         <Box sx={{
             borderRadius: 3,
             width: 316,
@@ -25,6 +25,7 @@ export const ProductCard = ({ product }) => {
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                     backgroundPositionX: "center",
+                    backgroundPositionY: "center",
                     borderBottom: "1px solid #DDDDDD",
                 }}>
                 </Box>

@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const AllCategoriesBtn = styled('button')({
+export const LinkBorderBtn = styled('button')({
     border: "1px solid #DDDDDD",
     backgroundColor: "#FFFFFF",
     height: "fit-content",
