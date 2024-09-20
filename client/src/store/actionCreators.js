@@ -23,6 +23,17 @@ export const getCategories = createAsyncThunk("categories/getCategories", async 
     }
 });
 
+export const getCategoryName = createAsyncThunk("categories/getCategories", async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/categories/id`);
+
+        return response.data.category.title;
+    } catch(error){
+        console.log(error.message);
+        return error.message;
+    }
+});
+
 
 export const sendFormData = createAsyncThunk("sale/sendFormData", async (data) => {
     try {

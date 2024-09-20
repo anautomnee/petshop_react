@@ -1,15 +1,14 @@
 import { Grid2, Typography } from "@mui/material"
 import { MainLayout } from "../layouts/MainLayout"
 import { BreadcrumbsLine } from "../components/breadcrumbs/BreadcrumbsLine"
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ProductCard } from "../components/ProductCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
 
 export const Category = () => {
     const [products, setProducts] = useState({});
-    const location = useLocation();
-    const currentCategoryId = Number(location.pathname.slice(-1));
+    const { categoryId } = useParams();
 
     useEffect(() => {
         async function getProductsByCategory(id) {
@@ -21,8 +20,8 @@ export const Category = () => {
                 return error.message;
             }
         };
-        getProductsByCategory(currentCategoryId)
-    }, [currentCategoryId]);
+        getProductsByCategory(categoryId)
+    }, [categoryId]);
 
     return <MainLayout>
         <div className="container">
