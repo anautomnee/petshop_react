@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { sendFormData, sendOrderData } from "../store/actionCreators";
 
-export const OrderForm = ({ type }) => {
+export const OrderForm = ({ type, handleClickOpen }) => {
 
     const {
         register,
@@ -18,6 +18,9 @@ export const OrderForm = ({ type }) => {
         } else {
             dispatch(sendOrderData(data));
         }
+        if (handleClickOpen) {
+            handleClickOpen()
+        }
     };
 
     return <form className={type === "main" ? "firstOrderForm" : "cartForm"} onSubmit={handleSubmit(onSubmit)}>
@@ -27,6 +30,6 @@ export const OrderForm = ({ type }) => {
         {errors.phoneNumber && <span>Phone should be al least seven letters long</span>}
         <input type="email" placeholder="Email" {...register("email", { required: true })} />
         {errors.email && <span>Email is required</span>}
-        <button type="submit">Get a discount</button>
+        <button type="submit">{type === "main" ? "Get a discount" : "Order"}</button>
     </form>
 }

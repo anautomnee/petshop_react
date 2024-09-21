@@ -47,6 +47,16 @@ export const theme = createTheme({
             }
           `,
         },
+        MuiDialog: {
+          styleOverrides: {
+            paper: {
+              backgroundColor: '#0D50FF',
+              borderRadius: 16,
+              color: '#FFFFFF',
+              padding: "32px"
+            }
+          }
+        }
     },
     palette: {
       primary: {

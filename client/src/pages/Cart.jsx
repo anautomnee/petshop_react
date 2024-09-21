@@ -7,17 +7,21 @@ import { CartProductCard } from "../components/cart/CartProductCard"
 import { OrderDetails } from "../components/cart/OrderDetails"
 import { useEffect, useState } from "react"
 import { getCartTotal } from "../utils"
+import { DialogComponent } from "../components/cart/DialogComponent"
 
 export const Cart = () => {
     const { productsInCart } = useSelector(state => state.products);
     const [total, setTotal] = useState(0)
+    const [open, setOpen] = useState(false);
     useEffect(() => {
         if (productsInCart.length > 0) {
             setTotal(getCartTotal(productsInCart));
         }
     }, [productsInCart])
+    const handleClickOpen = () => setOpen(true);
     return <MainLayout>
         <div className="container">
+            <DialogComponent open={open} setOpen={setOpen} />
             <Stack direction="row" alignItems="center" mb={5} mt={5}>
                 <Typography variant="h2" sx={{ width: 900 }}>Shopping cart</Typography>
                 <Box sx={{ borderBottom: "1px solid #DDDDDD", width: "100%" }} />
@@ -30,7 +34,7 @@ export const Cart = () => {
                         {productsInCart.length > 0 && productsInCart.map(product => <CartProductCard key={product.id} product={product} />)}
                     </Grid2>
                     <Grid2 size={5}>
-                        <OrderDetails items={productsInCart.length} total={total} />
+                        <OrderDetails items={productsInCart.length} total={total} handleClickOpen={handleClickOpen} />
                     </Grid2>
 
                 </Grid2> :
