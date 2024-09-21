@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { ProductCard } from "../components/ProductCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { FilterComponent } from "../components"
 
 export const Category = () => {
     const [products, setProducts] = useState({});
@@ -27,6 +28,7 @@ export const Category = () => {
         <div className="container">
             <BreadcrumbsLine breadcrumbs={[{ title: "Main page", url: "/" }, { title: "Categories", url: "/categories" }]} current={products?.category?.title} />
             <Typography mb={5} variant="h2">{products?.category?.title}</Typography>
+            <FilterComponent />
             <Grid2 mb={12} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {products?.data?.length > 0 ? products.data.map(product => <Grid2 key={product?.id} size={3}><ProductCard product={product} /></Grid2>) : <Typography>Loading...</Typography>}
             </Grid2>

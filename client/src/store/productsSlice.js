@@ -5,7 +5,7 @@ const initialState = {
     status: "IDLE",
     products: [],
     error: null,
-    productsInCart: [],
+    productsInCart: JSON.parse(localStorage.getItem("productsInCart")) || [],
 }
 
 const productsSlice = createSlice({
@@ -13,10 +13,14 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            state.productsInCart = [...state.productsInCart, action.payload];
+            const new_cart = [...state.productsInCart, action.payload];
+            state.productsInCart = new_cart;
+            localStorage.setItem("productsInCart", JSON.stringify(new_cart));
         },
         removeFromCart(state, action) {
-            state.productsInCart = state.productsInCart.filter(item => item.id !== action.payload);
+            const new_cart = state.productsInCart.filter(item => item.id !== action.payload);
+            state.productsInCart = new_cart;
+            localStorage.setItem("productsInCart", JSON.stringify(new_cart));
         },
     },
     extraReducers: (builder) => {

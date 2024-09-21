@@ -1,4 +1,4 @@
-import { Box, Grid2, Stack, Typography } from "@mui/material"
+import { Box, Button, Grid2, Stack, Typography } from "@mui/material"
 import { MainLayout } from "../layouts/MainLayout"
 import { Link } from "react-router-dom"
 import { LinkBorderBtn } from "../theme/customComponents"
@@ -23,15 +23,24 @@ export const Cart = () => {
                 <Box sx={{ borderBottom: "1px solid #DDDDDD", width: "100%" }} />
                 <Link to="/"><LinkBorderBtn sx={{ width: 160 }}>Back to the store</LinkBorderBtn></Link>
             </Stack>
-            <Grid2 container spacing={4}>
-                <Grid2 size={7}>
-                    {productsInCart.length > 0 && productsInCart.map(product => <CartProductCard key={product.id} product={product} />)}
-                </Grid2>
-                <Grid2 size={5}>
-                    <OrderDetails items={productsInCart.length} total={total} />
-                </Grid2>
+            {productsInCart.length > 0 ?
 
-            </Grid2>
+                <Grid2 container spacing={4}>
+                    <Grid2 size={7}>
+                        {productsInCart.length > 0 && productsInCart.map(product => <CartProductCard key={product.id} product={product} />)}
+                    </Grid2>
+                    <Grid2 size={5}>
+                        <OrderDetails items={productsInCart.length} total={total} />
+                    </Grid2>
+
+                </Grid2> :
+                <Stack mb={8}>
+                    <Typography mb={4}>Looks like you have no items in your basket currently.</Typography>
+                    <Link to="/products">
+                        <Button variant="contained" sx={{ padding: "8px 32px", fontWeight: 600 }}>Continue shopping</Button>
+                    </Link>
+                </Stack>
+            }
         </div>
     </MainLayout>
 }

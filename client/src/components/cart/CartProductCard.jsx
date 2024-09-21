@@ -3,6 +3,7 @@ import { ValueControl } from "./ValueControl"
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../store/productsSlice";
+import { Link } from "react-router-dom";
 
 export const CartProductCard = ({ product }) => {
     const dispatch = useDispatch();
@@ -25,7 +26,9 @@ export const CartProductCard = ({ product }) => {
         </Grid2>
         <Grid2 size={8} ml={4}>
             <Stack direction="row" justifyContent="space-between" sx={{ width: "100%", mt: 4 }}>
-                <Typography className="shortenText" mb={4}>{product.title}</Typography>
+                <Link to={`/products/${product.id}`}>
+                    <Typography className="shortenText" mb={4} sx={{ "&:hover": { textDecoration: "underline" } }}>{product.title}</Typography>
+                </Link>
                 <CloseIcon onClick={() => dispatch(removeFromCart(product.id))} style={{ marginRight: 32, cursor: "pointer" }} />
             </Stack>
             <Stack direction="row" alignItems="flex-end">

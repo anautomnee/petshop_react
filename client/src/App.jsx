@@ -10,8 +10,6 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts())
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(getCategories())
   }, [dispatch]);
 
