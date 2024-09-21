@@ -102,9 +102,10 @@ a {
 }
 
 .description {
-  /* text-overflow: ellipsis;
-  overflow: hidden; 
-  width: 548px;
-  height: 227px;  
-  white-space: nowrap; */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+          line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  
 }
