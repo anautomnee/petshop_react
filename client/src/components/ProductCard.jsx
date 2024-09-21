@@ -1,8 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import { SaleBadge } from "../theme/customComponents"
+import { getDiscount } from "../utils"
 
 export const ProductCard = ({ product }) => {
+    const discount = getDiscount(product?.price, product?.discont_price);
     return <Link to={`/products/${product.id}`}>
         <Box sx={{
             borderRadius: 3,
@@ -15,7 +17,7 @@ export const ProductCard = ({ product }) => {
             }
         }}>
             <Stack direction="column" gap={2} sx={{ position: "relative" }}>
-                {product.discont_price && <SaleBadge>-{product.discont_price}%</SaleBadge>}
+                {product.discont_price && <SaleBadge>-{discount}%</SaleBadge>}
                 <Box sx={{
                     width: 314,
                     height: 284,
@@ -31,8 +33,10 @@ export const ProductCard = ({ product }) => {
                 </Box>
                 <Typography className="shortenText" sx={{ paddingLeft: 4 }}>{product.title}</Typography>
                 <Stack direction="row" alignItems="flex-end" gap={2} sx={{ paddingLeft: 4 }}>
-                    <Typography variant="h3">${product.price}</Typography>
-                    <Typography variant="crossed">${product.discont_price}</Typography>
+                    {product.discont_price ? <>
+                        <Typography variant="h3">${product.discont_price}</Typography>
+                        <Typography variant="crossed">${product.price}</Typography>
+                    </> : <Typography variant="h3">${product.price}</Typography>}
                 </Stack>
             </Stack>
         </Box>

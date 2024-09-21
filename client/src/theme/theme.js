@@ -26,6 +26,12 @@ export const theme = createTheme({
         crossed: {
           color: "#8B8B8B",
           textDecoration: "line-through"
+        },
+        description: {
+          color: "#282828",
+          fontSize: 16,
+          fontWeight: 400,
+          width: 548
         }
     },
     components: {
@@ -51,6 +57,9 @@ export const theme = createTheme({
       },
       extra: {
         main: '#F1F3F4',
+      },
+      order: {
+        main: '#8B8B8B'
       }
     },
   });

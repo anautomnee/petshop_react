@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import pets from "../../static/pets_firstOrder.png";
-import { FirstOrderForm } from "./FirstOrderForm";
+import { OrderForm } from "../OrderForm";
 
 export const FirstOrderBanner = () => {
     return <div className="container">
@@ -12,7 +12,7 @@ export const FirstOrderBanner = () => {
             <Typography sx={{ paddingTop: 4 }} color="#FFFFFF" variant="h2" textAlign="center">5% off on the first order</Typography>
             <Stack direction="row" alignItems="center">
                 <img src={pets} alt="pets" />
-                <FirstOrderForm />
+                <OrderForm type="main" />
             </Stack>
         </Box>
     </div>

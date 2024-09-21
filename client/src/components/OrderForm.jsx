@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { sendFormData } from "../../store/actionCreators";
+import { sendFormData, sendOrderData } from "../store/actionCreators";
 
-export const FirstOrderForm = () => {
+export const OrderForm = ({ type }) => {
 
     const {
         register,
@@ -13,11 +13,14 @@ export const FirstOrderForm = () => {
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-        console.log(data)
-        dispatch(sendFormData(data));
+        if (type === "main") {
+            dispatch(sendFormData(data));
+        } else {
+            dispatch(sendOrderData(data));
+        }
     };
 
-    return <form className="firstOrderForm" onSubmit={handleSubmit(onSubmit)}>
+    return <form className={type === "main" ? "firstOrderForm" : "cartForm"} onSubmit={handleSubmit(onSubmit)}>
         <input type="text" placeholder="Name" {...register("name", { required: true, minLength: 2 })} />
         {errors.name && <span>Name should be al least two letters long</span>}
         <input type="number" placeholder="Phone number" {...register("phoneNumber", { required: true, minLength: 7 })} />

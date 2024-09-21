@@ -4,13 +4,21 @@ import { getProducts } from "./actionCreators";
 const initialState = {
     status: "IDLE",
     products: [],
-    error: null
+    error: null,
+    productsInCart: [],
 }
 
 const productsSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {},
+    reducers: {
+        addToCart(state, action) {
+            state.productsInCart = [...state.productsInCart, action.payload];
+        },
+        removeFromCart(state, action) {
+            state.productsInCart = state.productsInCart.filter(item => item.id !== action.payload);
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(getProducts.pending, (state) => {
             state.status = "PENDING";
@@ -30,3 +38,4 @@ const productsSlice = createSlice({
 })
 
 export default productsSlice.reducer;
+export const {addToCart, removeFromCart} = productsSlice.actions;

@@ -1,15 +1,22 @@
-import { Typography } from "@mui/material"
+import { Box, Button, Stack, Typography } from "@mui/material"
 import { BreadcrumbsLine } from "../components/breadcrumbs/BreadcrumbsLine"
 import { MainLayout } from "../layouts/MainLayout"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { getDiscount } from "../utils";
+import { SaleBadge } from "../theme/customComponents";
+import { ValueControl } from "../components";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/productsSlice";
 
 export const Product = () => {
     const [product, setProduct] = useState({});
     const [categoryName, setCategoryName] = useState("");
+    const dispatch = useDispatch();
     const { productId } = useParams();
-    const API_URL = "http://localhost:3333"
+    const API_URL = "http://localhost:3333";
+    const discount = getDiscount(product?.price, product?.discont_price);
 
     useEffect(() => {
         async function getProduct(id) {
@@ -26,13 +33,32 @@ export const Product = () => {
         getProduct(productId)
     }, [productId]);
 
-    console.log(product)
-
     return <MainLayout>
         <div className="container">
             <BreadcrumbsLine breadcrumbs={[{ title: "Main page", url: "/" }, { title: "Categories", url: "/categories" }, { title: categoryName ? categoryName : "Category", url: `/categories/${product?.categoryId}` }]} current={product?.title?.slice(0, 18) + "..."} />
-            <Typography mb={5} variant="h2">{product?.title}</Typography>
-            <Typography>{product?.title}</Typography>
+            <Stack direction="row" gap={4} mb={10}>
+                <Box sx={{ width: 548, height: 542 }}>
+                    <img style={{}} src={`${API_URL}/${product?.image}`} alt={`${product?.title?.slice(0, 18)}...`} />
+                </Box>
+                <Stack>
+                    <Typography mb={5} variant="h3" sx={{ maxWidth: 548 }}>{product?.title}</Typography>
+                    <Stack direction="row" alignItems="flex-end" mb={4}>
+                        {product.discont_price ? <>
+                            <Typography variant="h2" mr={4}>${product.discont_price}</Typography>
+                            <Typography variant="crossed" sx={{ fontSize: 40 }} mr={2}>${product.price}</Typography>
+                            <SaleBadge style={{ position: "static", alignSelf: "flex-start" }}>-{discount}%</SaleBadge>
+                        </> : <Typography variant="h2" mr={4}>${product.price}</Typography>}
+                    </Stack>
+                    <Stack direction="row" alignItems="center" justifyContent="center" mb={4}>
+                        <ValueControl />
+                        <Button variant="contained" onClick={() => dispatch(addToCart(product))} sx={{ width: 316, height: 58, ml: 4, fontSize: 20 }}>Add to cart</Button>
+                    </Stack>
+                    <Typography mb={2}>Description</Typography>
+                    <Typography variant="description">{product?.description}</Typography>
+                    <Typography mt={4} sx={{ textDecoration: "underline", fontSize: 16, cursor: "pointer" }}>Read more</Typography>
+                </Stack>
+            </Stack>
+
         </div>
     </MainLayout>
 }

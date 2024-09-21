@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const API_URL = "http://localhost:3333"
 
 export const CategoryCard = ({ category }) => {
-    return <Link to={`${category.id}`}>
+    return <Link to={`/categories/${category.id}`}>
         <Stack direction="column" alignItems="center" gap={2}>
             <Box sx={{
                 width: 316,

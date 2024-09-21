@@ -44,3 +44,13 @@ export const sendFormData = createAsyncThunk("sale/sendFormData", async (data) =
         return error.message;
     }
 })
+
+export const sendOrderData = createAsyncThunk("sale/sendOrderData", async (data) => {
+    try {
+        const response = await axios.post(`${API_URL}/order/send`, {data});
+        return response.data;
+    } catch(error){
+        console.log(error.message);
+        return error.message;
+    }
+})

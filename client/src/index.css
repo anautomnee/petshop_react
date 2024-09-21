@@ -58,9 +58,53 @@ a {
   font-size: 20px;
 }
 
+.cartForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.cartForm input {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 18px 32px 16px 32px;
+}
+
+.cartForm input::placeholder {
+  color: #8B8B8B;
+  font-size: 20px;
+}
+
+.cartForm button {
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  height: 58px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: transform 0.4s;
+  background-color: #0D50FF;
+  color: #FFFFFF;
+}
+
+.cartForm button:hover {
+  transform: scale(1.01);
+}
+
 .shortenText {
   text-overflow: ellipsis;
   overflow: hidden; 
   width: 252px;  
   white-space: nowrap;
+}
+
+.description {
+  /* text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 548px;
+  height: 227px;  
+  white-space: nowrap; */
 }
