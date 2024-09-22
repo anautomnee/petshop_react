@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { ProductCard } from "../components/ProductCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { FilterComponent } from "../components"
+import { FilterComponent } from "../components/filter/FilterComponent"
 
 export const Category = () => {
     const [products, setProducts] = useState({});

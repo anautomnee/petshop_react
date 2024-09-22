@@ -11,3 +11,27 @@ export const getCartTotal = (productsInCart) => {
     }, 0)
     return total
 }
+
+export const filterDiscountedItems = (items) => {
+    return items.filter(item => item.discont_price)
+}
+
+export const filterItemsByPrice = (items, number, type) => {
+    if(type === "from") {
+        return items.filter(item => {
+            if(item.discont_price) {
+                return item.discont_price >= number
+            } else {
+                return item.price >= number
+            }
+        })
+    } else {
+        return items.filter(item => {
+            if(item.discont_price) {
+                return item.discont_price <= number
+            } else {
+                return item.price <= number
+            }
+        })
+    }
+}
