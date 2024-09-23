@@ -12,26 +12,45 @@ export const getCartTotal = (productsInCart) => {
     return total
 }
 
-export const filterDiscountedItems = (items) => {
-    return items.filter(item => item.discont_price)
-}
-
-export const filterItemsByPrice = (items, number, type) => {
-    if(type === "from") {
-        return items.filter(item => {
+export const filter = (filterObject, products) => {
+    let filteredProducts = [...products]
+    if (filterObject.priceFrom){
+        filteredProducts = filteredProducts.filter(item => {
             if(item.discont_price) {
-                return item.discont_price >= number
+                return item.discont_price >= filterObject.priceFrom
             } else {
-                return item.price >= number
-            }
-        })
-    } else {
-        return items.filter(item => {
-            if(item.discont_price) {
-                return item.discont_price <= number
-            } else {
-                return item.price <= number
+                return item.price >= filterObject.priceFrom
             }
         })
     }
+    if (filterObject.priceTo){
+        filteredProducts = filteredProducts.filter(item => {
+            if(item.discont_price) {
+                return item.discont_price <= filterObject.priceTo
+            } else {
+                return item.price <= filterObject.priceTo
+            }
+        })
+    }
+    if (filterObject.sale){
+        filteredProducts = filteredProducts.filter(item => item.discont_price)
+    }
+    if (filterObject.sorted){
+        switch(filterObject.sorted) {
+            case("by default"):
+                return filteredProducts
+            case("newest"):
+            // TODO
+                return 0
+            case("price: high-low"):
+            // TODO
+                return 0
+            case("price: low-high"):
+            // TODO
+                return 0
+            default:
+                return filteredProducts
+        }
+    }
+    return filteredProducts
 }
