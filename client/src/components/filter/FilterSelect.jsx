@@ -3,16 +3,14 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Box } from "@mui/material";
 
-export const FilterSelect = ({ options, defaultValue, onChange }) => {
+export const FilterSelect = ({ options, defaultValue, handleSelect }) => {
     const [selectedValue, setSelectedValue] = useState(defaultValue);
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleOptionClick = (value) => {
+    const onClick = (value) => {
         setSelectedValue(value);
         setIsOpen(false);
-        if (onChange) {
-            onChange(value);
-        }
+        handleSelect(value)
     };
     return <Box className="select__container">
         <Box
@@ -29,7 +27,7 @@ export const FilterSelect = ({ options, defaultValue, onChange }) => {
                     <li
                         key={option}
                         className={`custom-option ${option === selectedValue ? 'selected' : ''}`}
-                        onClick={() => handleOptionClick(option)}
+                        onClick={() => onClick(option)}
                     >
                         {option}
                     </li>

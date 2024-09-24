@@ -40,14 +40,39 @@ export const filter = (filterObject, products) => {
             case("by default"):
                 return filteredProducts
             case("newest"):
-            // TODO
-                return 0
+                filteredProducts = filteredProducts.sort(function (a, b) {
+                    const dateA = new Date(a.createdAt)
+                    const dateB = new Date(b.createdAt)
+                    console.log(dateA,dateB)
+                    return dateB - dateA
+                })
+                break;
             case("price: high-low"):
-            // TODO
-                return 0
+                filteredProducts = filteredProducts.sort(function (a, b) {
+                    if(a.discont_price && b.discont_price) {
+                        return b.discont_price - a.discont_price
+                    } else if(a.discont_price) {
+                        return b.price - a.discont_price
+                    } else if(b.discont_price) {
+                        return b.discont_price - a.price
+                    } else {
+                        return b.price - a.price
+                    }
+                })
+                break;
             case("price: low-high"):
-            // TODO
-                return 0
+                filteredProducts = filteredProducts.sort(function (a, b) {
+                    if(a.discont_price && b.discont_price) {
+                        return a.discont_price - b.discont_price
+                    } else if(a.discont_price) {
+                        return a.discont_price - b.price
+                    } else if(b.discont_price) {
+                        return a.price - b.discont_price
+                    } else {
+                        return a.price - b.price
+                    }
+                })
+                break;
             default:
                 return filteredProducts
         }

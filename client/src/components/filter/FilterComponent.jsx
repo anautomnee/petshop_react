@@ -21,7 +21,7 @@ export const FilterComponent = () => {
         <FilterInput type="number" placeholder="to"
             onChange={(e) => dispatch(changePriceTo(e.target.value))} />
         <Typography>Discounted items</Typography>
-        <FilterCheckbox type="checkbox" onClick={e => dispatch(changeSale(e.target.checked))} /> {/*onClick={(e) => handleCheckboxClick(e)}*/}
+        <FilterCheckbox type="checkbox" onClick={e => dispatch(changeSale(e.target.checked))} />
         <Typography>Sorted</Typography>
         <FilterSelect options={filterOptions} defaultValue={filterOptions[0]} handleSelect={(selected) => dispatch(changeSorted(selected))} />
     </Stack>

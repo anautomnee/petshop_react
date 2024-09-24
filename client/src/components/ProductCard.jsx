@@ -1,21 +1,32 @@
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Button, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import { SaleBadge } from "../theme/customComponents"
 import { getDiscount } from "../utils"
 
 export const ProductCard = ({ product }) => {
     const discount = getDiscount(product?.price, product?.discont_price);
-    return <Link to={`/products/${product.id}`}>
-        <Box sx={{
-            borderRadius: 3,
-            width: 316,
-            height: 422,
-            border: "1px solid #DDDDDD",
-            transition: "transform 0.4s",
-            "&:hover": {
-                transform: "scale(1.02)"
-            }
-        }}>
+    return <Box sx={{
+        position: "relative",
+        borderRadius: 3,
+        width: 316,
+        height: 422,
+        border: "1px solid #DDDDDD",
+        transition: "transform 0.4s",
+        "&:hover": {
+            transform: "scale(1.02)"
+        }
+    }}>
+        <Button variant="contained"
+            sx={{
+                position: "absolute",
+                top: 210,
+                right: 16,
+                zIndex: 5,
+                width: 284,
+                height: 58
+            }}>
+            <Typography>Add to cart</Typography></Button>
+        <Link to={`/products/${product.id}`}>
             <Stack direction="column" gap={2} sx={{ position: "relative" }}>
                 {product.discont_price && <SaleBadge>-{discount}%</SaleBadge>}
                 <Box sx={{
@@ -39,7 +50,7 @@ export const ProductCard = ({ product }) => {
                     </> : <Typography variant="h3">${product.price}</Typography>}
                 </Stack>
             </Stack>
-        </Box>
+        </Link>
+    </Box>
 
-    </Link>
 }
