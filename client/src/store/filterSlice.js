@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     priceFrom: 0,
-    priceTo: 0,
+    priceTo: 450,
     sale: null,
     sorted: null
 }

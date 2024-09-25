@@ -15,7 +15,7 @@ export const SalePreview = () => {
             <Link to="/products"><LinkBorderBtn>All sales</LinkBorderBtn></Link>
         </Stack>
         <Stack direction="row" gap={4} mb={13}>
-            {sale_products.map(product => <ProductCard key={product.id} product={product} />)}
+            {sale_products.map(product => <ProductCard page="sale" key={product.id} product={product} />)}
         </Stack>
     </div>
 }

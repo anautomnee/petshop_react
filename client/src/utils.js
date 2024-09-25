@@ -1,3 +1,8 @@
+import { useContext, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useLocation, useParams } from "react-router-dom";
+import { BreadcrumbsContext } from "./context/breadcrumbsContext";
+
 export const getDiscount = (original_price, discont_price) => {
     return Math.round(100 - discont_price*100/original_price);
 }
@@ -14,24 +19,14 @@ export const getCartTotal = (productsInCart) => {
 
 export const filter = (filterObject, products) => {
     let filteredProducts = [...products]
-    if (filterObject.priceFrom){
-        filteredProducts = filteredProducts.filter(item => {
-            if(item.discont_price) {
-                return item.discont_price >= filterObject.priceFrom
-            } else {
-                return item.price >= filterObject.priceFrom
-            }
-        })
-    }
-    if (filterObject.priceTo){
-        filteredProducts = filteredProducts.filter(item => {
-            if(item.discont_price) {
-                return item.discont_price <= filterObject.priceTo
-            } else {
-                return item.price <= filterObject.priceTo
-            }
-        })
-    }
+    // Price
+    filteredProducts = filteredProducts.filter(item => {
+        if(item.discont_price) {
+            return item.discont_price >= filterObject.priceFrom && item.discont_price <= filterObject.priceTo
+        } else {
+            return item.price >= filterObject.priceFrom && item.price <= filterObject.priceTo 
+        }
+    })
     if (filterObject.sale){
         filteredProducts = filteredProducts.filter(item => item.discont_price)
     }
@@ -41,10 +36,7 @@ export const filter = (filterObject, products) => {
                 return filteredProducts
             case("newest"):
                 filteredProducts = filteredProducts.sort(function (a, b) {
-                    const dateA = new Date(a.createdAt)
-                    const dateB = new Date(b.createdAt)
-                    console.log(dateA,dateB)
-                    return dateB - dateA
+                    return b.id - a.id
                 })
                 break;
             case("price: high-low"):
@@ -78,4 +70,49 @@ export const filter = (filterObject, products) => {
         }
     }
     return filteredProducts
+}
+
+const pageTitle = {
+    products: "All products",
+    categories: "All categories",
+    sales: "All sales"
+}
+
+export const useBreadcrumbs = () => {
+    const location = useLocation();
+    const {setCrumbs} = useContext(BreadcrumbsContext);
+    const { productId, categoryId } = useParams();
+    const page = location.pathname.split("/").filter(pathItem => pathItem !== "")[0];
+    const crumbsArray = [{
+        url: "/",
+        title: "Main page"
+    }, {
+        url: `/${page}`,
+        title: pageTitle[page]
+    }];
+
+    const category = useSelector(state => state.categories.categories).find(category => category.id === Number(categoryId));
+    if(category) {
+        crumbsArray.push({
+            url: `/${page}/${categoryId}`,
+            title: category.title
+        })
+    };
+    const product = useSelector(state => state.products.products).find(product => product.id === Number(productId));
+    if (category && product) {
+        crumbsArray.push({
+            url: `/${page}/${categoryId}/${productId}`,
+            title: `${product.title.slice(0,18)}...`
+        })
+    }
+    if (!category && product) {
+        crumbsArray.push({
+            url: `/${page}/${productId}`,
+            title: `${product.title.slice(0,18)}...`
+        })
+    }
+
+    useEffect(() => {
+        setCrumbs(crumbsArray);
+    }, [location])
 }

@@ -2,11 +2,14 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { MainRouter } from "./routes/MainRouter";
 import { theme } from "./theme/theme";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCategories, getProducts } from "./store/actionCreators";
+import { BreadcrumbsContext } from "./context/breadcrumbsContext";
 
 
 function App() {
+  const [crumbs, setCrumbs] = useState([])
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts())
@@ -14,10 +17,12 @@ function App() {
   }, [dispatch]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <MainRouter />
-    </ThemeProvider>
+    <BreadcrumbsContext.Provider value={{ crumbs, setCrumbs }}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <MainRouter />
+      </ThemeProvider>
+    </BreadcrumbsContext.Provider>
 
   );
 }

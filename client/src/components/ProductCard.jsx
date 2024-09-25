@@ -2,9 +2,14 @@ import { Box, Button, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import { SaleBadge } from "../theme/customComponents"
 import { getDiscount } from "../utils"
+import { useRef } from "react"
+import { useDispatch } from "react-redux"
+import { addToCart } from "../store/productsSlice"
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ page, product }) => {
+    const dispatch = useDispatch();
     const discount = getDiscount(product?.price, product?.discont_price);
+    const addBtnRef = useRef(null);
     return <Box sx={{
         position: "relative",
         borderRadius: 3,
@@ -15,9 +20,14 @@ export const ProductCard = ({ product }) => {
         "&:hover": {
             transform: "scale(1.02)"
         }
-    }}>
-        <Button variant="contained"
+    }}
+        onMouseOver={() => addBtnRef.current.style.display = "block"}
+        onMouseLeave={() => addBtnRef.current.style.display = "none"}
+    >
+        <Button variant="contained" ref={addBtnRef} hidden
+            onClick={() => dispatch(addToCart(product))}
             sx={{
+                display: "none",
                 position: "absolute",
                 top: 210,
                 right: 16,
@@ -26,7 +36,7 @@ export const ProductCard = ({ product }) => {
                 height: 58
             }}>
             <Typography>Add to cart</Typography></Button>
-        <Link to={`/products/${product.id}`}>
+        <Link to={page === "sale" ? `/sales/${product.id}` : (page === "products" ? `/products/${product.id}` : `/categories/${page}/${product.id}`)}>
             <Stack direction="column" gap={2} sx={{ position: "relative" }}>
                 {product.discont_price && <SaleBadge>-{discount}%</SaleBadge>}
                 <Box sx={{

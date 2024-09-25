@@ -9,7 +9,7 @@ export const CategoriesPreview = ({ random_categories }) => {
         <Stack direction="row" alignItems="center" mb={5}>
             <Typography mr={4} variant="h2">Categories</Typography>
             <Box sx={{ borderBottom: "1px solid #DDDDDD", width: 844 }} />
-            <Link to="/categories">
+            <Link to="/categories" >
                 <LinkBorderBtn>All categories</LinkBorderBtn>
             </Link>
         </Stack>

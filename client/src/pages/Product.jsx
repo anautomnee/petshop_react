@@ -1,10 +1,9 @@
 import { Box, Button, Stack, Typography } from "@mui/material"
-import { BreadcrumbsLine } from "../components/breadcrumbs/BreadcrumbsLine"
 import { MainLayout } from "../layouts/MainLayout"
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { getDiscount } from "../utils";
+import { getDiscount, useBreadcrumbs } from "../utils";
 import { SaleBadge } from "../theme/customComponents";
 import { ValueControl } from "../components";
 import { useDispatch } from "react-redux";
@@ -12,7 +11,6 @@ import { addToCart } from "../store/productsSlice";
 
 export const Product = () => {
     const [product, setProduct] = useState({});
-    const [categoryName, setCategoryName] = useState("");
     const descriptionRef = useRef(null);
     const dispatch = useDispatch();
     const { productId } = useParams();
@@ -24,8 +22,6 @@ export const Product = () => {
             try {
                 const response = await axios.get(`${API_URL}/products/${id}`);
                 setProduct(response.data[0]);
-                const responseCategory = await axios.get(`${API_URL}/categories/${response.data[0].categoryId}`);
-                setCategoryName(responseCategory.data.category.title)
             } catch (error) {
                 console.log(error.message);
                 return error.message;
@@ -38,10 +34,10 @@ export const Product = () => {
         descriptionRef.current.classList.toggle("description");
         e.target.textContent === "Show less" ? e.target.textContent = "Read more" : e.target.textContent = "Show less";
     }
+    useBreadcrumbs()
 
-    return <MainLayout>
+    return <MainLayout breadcrumbs={true}>
         <div className="container">
-            <BreadcrumbsLine breadcrumbs={[{ title: "Main page", url: "/" }, { title: "Categories", url: "/categories" }, { title: categoryName ? categoryName : "Category", url: `/categories/${product?.categoryId}` }]} current={product?.title?.slice(0, 18) + "..."} />
             <Stack direction="row" gap={4} mb={10}>
                 <Box sx={{ width: 548, height: 542 }}>
                     <img style={{
