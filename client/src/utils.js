@@ -7,16 +7,6 @@ export const getDiscount = (original_price, discont_price) => {
     return Math.round(100 - discont_price*100/original_price);
 }
 
-export const getCartTotal = (productsInCart) => {
-    const total =  productsInCart.reduce((acc, el) => {
-        if (el.discont_price) {
-            return acc + el.discont_price
-        }
-        return acc + el.price;
-    }, 0)
-    return total
-}
-
 export const filter = (filterObject, products) => {
     let filteredProducts = [...products]
     // Price
@@ -114,5 +104,16 @@ export const useBreadcrumbs = () => {
 
     useEffect(() => {
         setCrumbs(crumbsArray);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
+}
+
+
+
+export const getQuantity = (productsInCart, productId) => {
+    if(productsInCart.length > 0 ) {
+        const currentProduct = productsInCart.find(product => product.id === Number(productId));
+        return currentProduct ? currentProduct.quantity : 0;
+    }
+    return 0
 }

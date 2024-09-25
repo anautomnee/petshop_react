@@ -36,13 +36,17 @@ export const ItemValueControl = styled('button')({
     height: 58,
     borderRadius: 8,
     border: "1px solid #DDDDDD",
+    borderTop: "none",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: 32,
     color: "#8B8B8B",
     backgroundColor: "#FFFFFF",
-    cursor: "pointer"
+    cursor: "pointer",
+    "&:hover": {
+        backgroundColor: "#F5F5F5",
+    }
 })
 
 export const FilterInput = styled('input')({

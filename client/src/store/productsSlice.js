@@ -4,25 +4,13 @@ import { getProducts } from "./actionCreators";
 const initialState = {
     status: "IDLE",
     products: [],
-    error: null,
-    productsInCart: JSON.parse(localStorage.getItem("productsInCart")) || [],
+    error: null
 }
 
 const productsSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {
-        addToCart(state, action) {
-            const new_cart = [...state.productsInCart, action.payload];
-            state.productsInCart = new_cart;
-            localStorage.setItem("productsInCart", JSON.stringify(new_cart));
-        },
-        removeFromCart(state, action) {
-            const new_cart = state.productsInCart.filter(item => item.id !== action.payload);
-            state.productsInCart = new_cart;
-            localStorage.setItem("productsInCart", JSON.stringify(new_cart));
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getProducts.pending, (state) => {
             state.status = "PENDING";
@@ -42,4 +30,3 @@ const productsSlice = createSlice({
 })
 
 export default productsSlice.reducer;
-export const {addToCart, removeFromCart} = productsSlice.actions;

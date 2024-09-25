@@ -2,23 +2,21 @@ import { Box, Button, Grid2, Stack, Typography } from "@mui/material"
 import { MainLayout } from "../layouts/MainLayout"
 import { Link } from "react-router-dom"
 import { LinkBorderBtn } from "../theme/customComponents"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { CartProductCard } from "../components/cart/CartProductCard"
 import { OrderDetails } from "../components/cart/OrderDetails"
-import { useEffect, useState } from "react"
-import { getCartTotal } from "../utils"
 import { DialogComponent } from "../components/cart/DialogComponent"
+import { useEffect, useState } from "react"
+import { getTotal } from "../store/cartSlice"
 
 export const Cart = () => {
-    const { productsInCart } = useSelector(state => state.products);
-    const [total, setTotal] = useState(0)
+    const { productsInCart, total } = useSelector(state => state.cart);
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    useEffect(() => {
-        if (productsInCart.length > 0) {
-            setTotal(getCartTotal(productsInCart));
-        }
-    }, [productsInCart])
     const handleClickOpen = () => setOpen(true);
+    useEffect(() => {
+        dispatch(getTotal())
+    }, [dispatch, total])
     return <MainLayout>
         <div className="container">
             <DialogComponent open={open} setOpen={setOpen} />
@@ -27,11 +25,11 @@ export const Cart = () => {
                 <Box sx={{ borderBottom: "1px solid #DDDDDD", width: "100%" }} />
                 <Link to="/"><LinkBorderBtn sx={{ width: 160 }}>Back to the store</LinkBorderBtn></Link>
             </Stack>
-            {productsInCart.length > 0 ?
+            {productsInCart?.length > 0 ?
 
                 <Grid2 container spacing={4}>
                     <Grid2 size={7}>
-                        {productsInCart.length > 0 && productsInCart.map(product => <CartProductCard key={product.id} product={product} />)}
+                        {productsInCart?.length > 0 && productsInCart?.map(product => <CartProductCard key={product.id} productsInCart={productsInCart} product={product} />)}
                     </Grid2>
                     <Grid2 size={5}>
                         <OrderDetails items={productsInCart.length} total={total} handleClickOpen={handleClickOpen} />

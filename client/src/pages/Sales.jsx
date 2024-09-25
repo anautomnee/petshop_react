@@ -15,6 +15,7 @@ export const Sales = () => {
     useEffect(() => {
         const result = filter(filterObject, saleProducts)
         setShownProducts(result)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filterObject])
 
     useBreadcrumbs();

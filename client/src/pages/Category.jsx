@@ -35,6 +35,7 @@ export const Category = () => {
             const result = filter(filterObject, categoryProducts.data)
             setShownProducts({ ...shownProducts, data: result })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filterObject, categoryProducts])
 
 

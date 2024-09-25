@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
-    const { productsInCart } = useSelector(state => state.products);
+    const { productsInCart } = useSelector(state => state.cart);
     return <div style={{ borderBottom: "1px solid #DDDDDD" }}>
         <div className="container">
             <Toolbar>
@@ -24,7 +24,7 @@ export const Header = () => {
                     </Stack>
 
                     <NavLink to="/cart">
-                        {productsInCart.length > 0 ? <Badge badgeContent={productsInCart.length} color="primary" overlap="circular" anchorOrigin={{
+                        {productsInCart?.length > 0 ? <Badge badgeContent={productsInCart?.length} color="primary" overlap="circular" anchorOrigin={{
                             vertical: 'top',
                             horizontal: 'left',
                         }}>

@@ -3,14 +3,17 @@ import { MainLayout } from "../layouts/MainLayout"
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { getDiscount, useBreadcrumbs } from "../utils";
+import { getDiscount, getQuantity, useBreadcrumbs } from "../utils";
 import { SaleBadge } from "../theme/customComponents";
 import { ValueControl } from "../components";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../store/productsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getTotal } from "../store/cartSlice";
 
 export const Product = () => {
     const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(0);
+    const { productsInCart } = useSelector(state => state.cart)
+
     const descriptionRef = useRef(null);
     const dispatch = useDispatch();
     const { productId } = useParams();
@@ -29,6 +32,10 @@ export const Product = () => {
         };
         getProduct(productId)
     }, [productId]);
+
+    useEffect(() => {
+        setQuantity(getQuantity(productsInCart, productId))
+    }, [productId, productsInCart])
 
     const readMore = (e) => {
         descriptionRef.current.classList.toggle("description");
@@ -57,8 +64,11 @@ export const Product = () => {
                         </> : <Typography variant="h2" mr={4}>${product.price}</Typography>}
                     </Stack>
                     <Stack direction="row" alignItems="center" justifyContent="center" mb={4}>
-                        <ValueControl />
-                        <Button variant="contained" onClick={() => dispatch(addToCart(product))} sx={{ width: 316, height: 58, ml: 4, fontSize: 20 }}>Add to cart</Button>
+                        <ValueControl page="product" product={product} quantity={quantity} setQuantity={setQuantity} />
+                        <Button variant="contained" disabled={quantity ? false : true} onClick={() => {
+                            dispatch(addToCart({ ...product, quantity: quantity }))
+                            dispatch(getTotal())
+                        }} sx={{ width: 316, height: 58, ml: 4, fontSize: 20 }}>Add to cart</Button>
                     </Stack>
                     <Typography mb={2}>Description</Typography>
                     <Typography className="description" ref={descriptionRef} variant="description">{product?.description}</Typography>
