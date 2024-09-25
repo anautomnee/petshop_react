@@ -22,11 +22,15 @@ a {
   margin: 0 auto;
 }
 
+.petsBanner {
+  width: 54vw;
+}
+
 .firstOrderForm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 516px;
+  padding-right: 32px;
 }
 
 .firstOrderForm input {
@@ -36,6 +40,7 @@ a {
   border-radius: 8px;
   color: #FFFFFF;
   font-size: 20px;
+  margin-top: 16px;
 }
 
 .firstOrderForm button {
@@ -47,6 +52,7 @@ a {
   margin-top: 16px;
   cursor: pointer;
   transition: transform 0.4s;
+  margin-bottom: 16px;
 }
 
 .firstOrderForm button:hover {
@@ -61,7 +67,6 @@ a {
 .cartForm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
 }
 
@@ -70,6 +75,7 @@ a {
   border-radius: 8px;
   font-size: 20px;
   padding: 18px 32px 16px 32px;
+  margin-top: 16px;
 }
 
 .cartForm input::placeholder {
@@ -88,6 +94,7 @@ a {
   transition: transform 0.4s;
   background-color: #0D50FF;
   color: #FFFFFF;
+  margin-bottom: 16px;
 }
 
 .cartForm button:hover {
@@ -152,4 +159,57 @@ a {
 .custom-option.selected {
   background-color: #f0f0f0;
   color: #282828;
+}
+
+
+@media screen and (max-width: 1420px) {
+  .container {
+    max-width: 1200px;
+  }
+  .petsBanner {
+    width: 48vw;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .container {
+    max-width: 940px;
+  }
+  .petsBanner {
+    width: 38vw;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    max-width: 720px;
+  }
+  .petsBanner {
+    width: 38vw;
+  }
+  .navbar__link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .container {
+    max-width: 570px;
+  }
+  .petsBanner {
+    display: none;
+  }
+  .firstOrderForm {
+    padding-right: 0;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container {
+    max-width: 420px;
+  }
+  .firstOrderForm {
+    padding: 32px;
+  }
 }

@@ -5,7 +5,7 @@ export const Footer = () => {
     return <div className="container">
         <Typography mb={10} variant="h2">Contact</Typography>
         <Stack gap={4}>
-            <Stack direction="row" gap={4}>
+            <Stack sx={{ flexDirection: { xl: "row", lg: "row", md: "row", sm: "row", xs: "column" } }} gap={4}>
                 <FooterCard title="Phone" body="+49 30 915-88492" type="lg" />
                 <FooterCard title="Socials" body={<Stack direction="row" gap={1}>
                     <svg width="43" height="44" viewBox="0 0 43 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@ export const Footer = () => {
                     </svg>
                 </Stack>} type="icon" />
             </Stack>
-            <Stack direction="row" gap={4}>
+            <Stack sx={{ flexDirection: { xl: "row", lg: "row", md: "row", sm: "row", xs: "column" } }} gap={4}>
                 <FooterCard title="Address" body="Wallstraẞe 9-13, 10179 Berlin, Deutschland" type="lg" />
                 <FooterCard title="Working Hours" body="24 hours a day" type="sm" />
             </Stack>

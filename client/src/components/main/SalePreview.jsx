@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Grid2, Stack, Typography } from "@mui/material"
 import { LinkBorderBtn } from "../../theme/customComponents"
 import { useSelector } from "react-redux"
 import { ProductCard } from "../ProductCard";
@@ -14,8 +14,10 @@ export const SalePreview = () => {
             <Box sx={{ borderBottom: "1px solid #DDDDDD", width: 1190 }} />
             <Link to="/products"><LinkBorderBtn>All sales</LinkBorderBtn></Link>
         </Stack>
-        <Stack direction="row" gap={4} mb={13}>
-            {sale_products.map(product => <ProductCard page="sale" key={product.id} product={product} />)}
-        </Stack>
+        <Grid2 mb={13} container justifyContent="center" rowSpacing={4} columnSpacing={{ xxs: 2, xs: 1, sm: 4, md: 4, lg: 4 }}>
+            {sale_products.map(product => <Grid2 justifyContent="center" key={product.id} size="auto">
+                <ProductCard page="sale" product={product} />
+            </Grid2>)}
+        </Grid2>
     </div>
 }

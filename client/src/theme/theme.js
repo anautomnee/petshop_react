@@ -10,15 +10,42 @@ export const theme = createTheme({
         },
         h1: {
             fontSize: 96,
-            fontWeight: 800
+            fontWeight: 800,
+            '@media (max-width:1240px)': {
+            fontSize: 82,
+            },
+            '@media (max-width:900px)': {
+            fontSize: 64,
+            },
+            '@media (max-width:740px)': {
+            fontSize: 52,
+            },
         },
         h2: {
             fontSize: 64,
-            fontWeight: 900
+            fontWeight: 900,
+            '@media (max-width:1240px)': {
+            fontSize: 48,
+          },
+          '@media (max-width:900px)': {
+            fontSize: 42,
+            },
+            '@media (max-width:740px)': {
+            fontSize: 36,
+            },
         },
         h3: {
             fontSize: 40,
-            fontWeight: 600
+            fontWeight: 600,
+            '@media (max-width:1240px)': {
+            fontSize: 36,
+          },
+          '@media (max-width:900px)': {
+            fontSize: 32,
+            },
+            '@media (max-width:740px)': {
+            fontSize: 28,
+            },
         },
         button: {
             textTransform: 'none'
@@ -71,5 +98,15 @@ export const theme = createTheme({
       order: {
         main: '#8B8B8B'
       }
+    },
+    breakpoints: {
+      values: {
+        xxs: 0,
+        xs: 480,
+        sm: 740,
+        md: 980,
+        lg: 1240,
+        xl: 1420,
+      },
     },
   });

@@ -7,13 +7,15 @@ export const MainBanner = () => {
         <Box sx={{
             backgroundImage: `url(${mainBanner})`,
             color: '#FFFFFF',
-            height: 600,
-            width: "100%",
+            height: { lg: 600, md: 520, sm: 440 },
+            width: "100wv",
             padding: "80px 40px",
-            mb: 10
+            mb: 10,
+            backgroundRepeat: "no-repeat",
+            backgroundPositionX: "center"
         }}>
-            <Typography sx={{ maxWidth: 1200 }} mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
-            <Link to="/sales"><Button variant="contained" sx={{ padding: "14px 56px", fontSize: 20 }}>Check out</Button></Link>
+            <Typography sx={{ maxWidth: 1200, paddingLeft: { lg: 5, xl: 20 } }} mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
+            <Link style={{ paddingLeft: { lg: 5, xl: 8 } }} to="/sales"><Button variant="contained" sx={{ padding: "14px 56px", fontSize: 20 }}>Check out</Button></Link>
         </Box>
     </div>
 }

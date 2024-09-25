@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { sendFormData, sendOrderData } from "../store/actionCreators";
+import { Typography } from "@mui/material";
 
 export const OrderForm = ({ type, handleClickOpen }) => {
 
@@ -25,11 +26,11 @@ export const OrderForm = ({ type, handleClickOpen }) => {
 
     return <form className={type === "main" ? "firstOrderForm" : "cartForm"} onSubmit={handleSubmit(onSubmit)}>
         <input type="text" placeholder="Name" {...register("name", { required: true, minLength: 2 })} />
-        {errors.name && <span>Name should be al least two letters long</span>}
+        {errors.name && <Typography fontSize={14} color="#FFFFFF">Name should be al least two letters long</Typography>}
         <input type="number" placeholder="Phone number" {...register("phoneNumber", { required: true, minLength: 7 })} />
-        {errors.phoneNumber && <span>Phone should be al least seven letters long</span>}
+        {errors.phoneNumber && <Typography fontSize={14} color="#FFFFFF">Phone should be al least seven letters long</Typography>}
         <input type="email" placeholder="Email" {...register("email", { required: true })} />
-        {errors.email && <span>Email is required</span>}
+        {errors.email && <Typography fontSize={14} color="#FFFFFF">Email is required</Typography>}
         <button type="submit">{type === "main" ? "Get a discount" : "Order"}</button>
     </form>
 }

@@ -1,13 +1,39 @@
-import { Badge, Stack, Toolbar } from "@mui/material"
+import { Badge, Box, Drawer, Stack, Toolbar } from "@mui/material"
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from "react";
 
 export const Header = () => {
+    const [drawerOpen, setDrawerOpen] = useState(false)
     const { productsInCart } = useSelector(state => state.cart);
+
+    const toggleDrawer = (newOpen) => () => {
+        setDrawerOpen(newOpen);
+    };
+
+    const DrawerList = (
+        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+            <Stack sx={{
+                padding: 4,
+                gap: 4
+            }}>
+                <NavLink className="navbar__link" to="/">Main page</NavLink>
+                <NavLink className="navbar__link" to="/categories">Categories</NavLink>
+                <NavLink className="navbar__link" to="/products">All products</NavLink>
+                <NavLink className="navbar__link" to="/sales">All sales</NavLink>
+            </Stack>
+        </Box>
+    );
+
     return <div style={{ borderBottom: "1px solid #DDDDDD" }}>
         <div className="container">
             <Toolbar>
                 <Stack mb={3} mt={3} direction="row" justifyContent="space-between" alignItems="center" style={{ width: "100%" }}>
+                    <MenuIcon onClick={toggleDrawer(true)} fontSize="large" sx={{ display: { xl: "none", lg: "none", md: "none", sm: "none", xs: "block" } }} />
+                    <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
+                        {DrawerList}
+                    </Drawer>
                     <NavLink to="/">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ paddingTop: 8 }}>
                             <circle cx="35" cy="35" r="35" fill="#0D50FF" />
@@ -16,7 +42,10 @@ export const Header = () => {
                         </svg>
                     </NavLink>
 
-                    <Stack direction="row" gap={4}>
+                    <Stack direction="row" sx={{
+                        gap: { xl: 4, md: 2, sm: 2, xs: 2 },
+                        display: { xl: "flex", lg: "flex", md: "flex", sm: "flex", xs: "none", xxs: "none" }
+                    }}>
                         <NavLink className="navbar__link" to="/">Main page</NavLink>
                         <NavLink className="navbar__link" to="/categories">Categories</NavLink>
                         <NavLink className="navbar__link" to="/products">All products</NavLink>

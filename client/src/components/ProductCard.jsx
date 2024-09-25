@@ -75,7 +75,10 @@ export const ProductCard = ({ page, product }) => {
                     right: 16,
                     zIndex: 5,
                     width: 284,
-                    height: 58
+                    height: 58,
+                    "&:hover": {
+                        backgroundColor: "#282828"
+                    }
                 }}>
                 <Typography>Add to cart</Typography></Button>
             <Link to={page === "sale" ? `/sales/${product.id}` : (page === "products" ? `/products/${product.id}` : `/categories/${page}/${product.id}`)}>

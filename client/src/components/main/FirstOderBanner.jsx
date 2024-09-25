@@ -9,9 +9,9 @@ export const FirstOrderBanner = () => {
             borderRadius: 4,
             mb: 10
         }}>
-            <Typography sx={{ paddingTop: 4 }} color="#FFFFFF" variant="h2" textAlign="center">5% off on the first order</Typography>
-            <Stack direction="row" alignItems="center">
-                <img src={pets} alt="pets" />
+            <Typography sx={{ paddingTop: 4, padding: { xxs: "32px 10px 0 10px" } }} color="#FFFFFF" variant="h2" textAlign="center">5% off on the first order</Typography>
+            <Stack direction="row" alignItems="flex-end">
+                <img src={pets} className="petsBanner" alt="pets" />
                 <OrderForm type="main" />
             </Stack>
         </Box>
