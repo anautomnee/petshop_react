@@ -21,10 +21,10 @@ export const Cart = () => {
         <div className="container">
             <DialogComponent open={open} setOpen={setOpen} />
             <Stack direction="row" alignItems="center" mb={5} mt={5} justifyContent="space-between">
-                <Typography variant="h2" sx={{ width: "fit-content" }}>Shopping cart</Typography>
+                <Typography variant="h2" sx={{ width: "fit-content", mr: 1 }}>Shopping cart</Typography>
                 <Stack direction="row" alignItems="center">
-                    <Box sx={{ borderBottom: "1px solid #DDDDDD", width: { xxs: 60, xs: 60, sm: 180, md: 380, lg: 520, xl: 640 } }} />
-                    <Link to="/"><LinkBorderBtn sx={{ width: 170 }}>Back to the store</LinkBorderBtn></Link>
+                    <Box sx={{ borderBottom: "1px solid #DDDDDD", width: { xxs: 0, xs: 90, sm: 180, md: 380, lg: 520, xl: 640 } }} />
+                    <Link to="/"><LinkBorderBtn sx={{ width: { xs: 170, xxs: 120 } }}>Back to the store</LinkBorderBtn></Link>
                 </Stack>
             </Stack>
             {productsInCart?.length > 0 ?

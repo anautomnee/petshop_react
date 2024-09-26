@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Button, Stack, Typography } from "@mui/material"
 import mainBanner from "../../static/mainBanner.jpg"
 import { Link } from "react-router-dom"
 
@@ -14,8 +14,13 @@ export const MainBanner = () => {
             backgroundRepeat: "no-repeat",
             backgroundPositionX: "center"
         }}>
-            <Typography sx={{ maxWidth: 1200, paddingLeft: { lg: 5, xl: 20 } }} mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
-            <Link style={{ paddingLeft: { lg: 5, xl: 8 } }} to="/sales"><Button variant="contained" sx={{ padding: "14px 56px", fontSize: 20 }}>Check out</Button></Link>
+            <Stack alignItems="center">
+                <Typography sx={{ maxWidth: 1200, }} mb={5} variant="h1">Amazing Discounts on Pets Products!</Typography>
+                <Link to="/sales"><Button variant="contained" sx={{
+                    transform: { xl: "translateX(-490px)", lg: "translateX(-460px)", md: "translateX(-360px)", sm: "translateX(-240px)", xs: "translateX(-120px)", xxs: "translateX(-60px)" },
+                    padding: "14px 56px", fontSize: 20
+                }}>Check out</Button></Link>
+            </Stack>
         </Box>
     </div>
 }

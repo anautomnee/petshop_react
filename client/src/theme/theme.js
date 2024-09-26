@@ -7,6 +7,12 @@ export const theme = createTheme({
         body1: {
           fontSize: 20,
           fontWeight: 600,
+          '@media (max-width:740px)': {
+            fontSize: 18,
+            },
+            '@media (max-width:480px)': {
+            fontSize: 16,
+            },
         },
         h1: {
             fontSize: 96,
@@ -19,6 +25,12 @@ export const theme = createTheme({
             },
             '@media (max-width:740px)': {
             fontSize: 52,
+            },
+            '@media (max-width:580px)': {
+            fontSize: 48,
+            },
+            '@media (max-width:480px)': {
+            fontSize: 36,
             },
         },
         h2: {
@@ -33,6 +45,12 @@ export const theme = createTheme({
             '@media (max-width:740px)': {
             fontSize: 36,
             },
+            '@media (max-width:580px)': {
+            fontSize: 32,
+            },
+            '@media (max-width:480px)': {
+            fontSize: 28,
+            },
         },
         h3: {
             fontSize: 40,
@@ -45,6 +63,12 @@ export const theme = createTheme({
             },
             '@media (max-width:740px)': {
             fontSize: 28,
+            },
+            '@media (max-width:580px)': {
+            fontSize: 24,
+            },
+            '@media (max-width:480px)': {
+            fontSize: 20,
             },
         },
         button: {

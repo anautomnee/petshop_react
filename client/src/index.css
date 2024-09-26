@@ -162,6 +162,25 @@ a {
   color: #282828;
 }
 
+.valueControl {
+  position: absolute;
+  top: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+  border: 1px solid #DDDDDD;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #8B8B8B;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.valueControl:hover {
+  background-color: #F5F5F5;
+}
 
 @media screen and (max-width: 1420px) {
   .container {
@@ -207,6 +226,13 @@ a {
   .description {
     max-width: 420px;
   }
+  .valueControl {
+    height: 42px;
+    width: 42px;
+  }
+  .shortenText {
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 580px) {
@@ -215,5 +241,16 @@ a {
   }
   .firstOrderForm {
     padding: 32px;
+  }
+  
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .description {
+    max-width: 320px;
   }
 }

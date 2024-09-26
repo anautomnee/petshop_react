@@ -47,8 +47,8 @@ export const Product = () => {
         <div className="container">
             <Stack alignItems="center" direction={{ xxs: "column", xs: "column", sm: "column", md: "row", lg: "row", xl: "row" }} gap={4} mb={10}>
                 <Box sx={{
-                    width: { xxs: 420, xs: 420, sm: 420, md: 548, lg: 548, xl: 548 },
-                    height: { xxs: 414, xs: 414, sm: 414, md: 542, lg: 542, xl: 542 }
+                    width: { xxs: 320, xs: 420, sm: 420, md: 548, lg: 548, xl: 548 },
+                    height: { xxs: 320, xs: 414, sm: 414, md: 542, lg: 542, xl: 542 }
                 }}>
                     <img style={{
                         objectFit: "contain",
@@ -58,7 +58,7 @@ export const Product = () => {
                     }} src={`${API_URL}/${product?.image}`} alt={`${product?.title?.slice(0, 18)}...`} />
                 </Box>
                 <Stack>
-                    <Typography mb={5} variant="h3" sx={{ width: { xxs: 420, xs: 420, sm: 420, md: 548, lg: 548, xl: 548 }, }}>{product?.title}</Typography>
+                    <Typography mb={5} variant="h3" sx={{ width: { xxs: 320, xs: 420, sm: 420, md: 548, lg: 548, xl: 548 }, }}>{product?.title}</Typography>
                     <Stack direction="row" alignItems="flex-end" mb={4}>
                         {product.discont_price ? <>
                             <Typography variant="h2" mr={4}>${product.discont_price}</Typography>
