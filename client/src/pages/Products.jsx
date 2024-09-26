@@ -22,8 +22,8 @@ export const Products = () => {
         <div className="container">
             <Typography mb={5} variant="h2">All products</Typography>
             <FilterComponent />
-            <Grid2 mb={12} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                {shownProducts.length > 0 ? shownProducts?.map(product => <Grid2 key={product?.id} size={3}><ProductCard page="products" product={product} /></Grid2>) : <Typography>No items found</Typography>}
+            <Grid2 mb={12} justifyContent="center" container rowSpacing={4} columnSpacing={{ xxs: 1, xs: 1, sm: 2, md: 3 }}>
+                {shownProducts.length > 0 ? shownProducts?.map(product => <Grid2 key={product?.id} size="auto"><ProductCard page="products" product={product} /></Grid2>) : <Typography>No items found</Typography>}
             </Grid2>
         </div>
     </MainLayout>

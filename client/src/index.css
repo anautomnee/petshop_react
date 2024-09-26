@@ -31,6 +31,7 @@ a {
   flex-direction: column;
   width: 516px;
   padding-right: 32px;
+  padding-bottom: 16px;
 }
 
 .firstOrderForm input {
@@ -194,7 +195,7 @@ a {
 
 @media screen and (max-width: 740px) {
   .container {
-    max-width: 570px;
+    max-width: 520px;
   }
   .petsBanner {
     display: none;
@@ -203,11 +204,14 @@ a {
     padding-right: 0;
     margin: 0 auto;
   }
+  .description {
+    max-width: 420px;
+  }
 }
 
 @media screen and (max-width: 580px) {
   .container {
-    max-width: 420px;
+    max-width: 460px;
   }
   .firstOrderForm {
     padding: 32px;

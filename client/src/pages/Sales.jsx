@@ -19,7 +19,6 @@ export const Sales = () => {
     }, [filterObject])
 
     useBreadcrumbs();
-    console.log(shownProducts)
 
     return <MainLayout breadcrumbs={true}>
         <div className="container">

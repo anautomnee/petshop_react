@@ -7,7 +7,7 @@ import { BreadcrumbsContext } from "../../context/breadcrumbsContext"
 export const BreadcrumbsLine = ({ breadcrumbs }) => {
     const { crumbs } = useContext(BreadcrumbsContext)
     return <div className="container">
-        <Stack direction="row" alignItems="center" mt={5} mb={5}>
+        <Stack direction="row" alignItems="center" mt={5} mb={5} sx={{ flexWrap: 'wrap' }} rowGap={2}>
             {crumbs.map((breadcrumb, ind) => {
                 if (!(ind === crumbs.length - 1)) {
                     return <Stack direction="row" alignItems="center" key={ind}>

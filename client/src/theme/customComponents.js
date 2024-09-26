@@ -1,7 +1,7 @@
-import { styled } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import checkmark from "../static/checkmark.png"
 
-export const LinkBorderBtn = styled('button')({
+export const LinkBorderBtn = styled(Button)({
     border: "1px solid #DDDDDD",
     backgroundColor: "#FFFFFF",
     height: "fit-content",

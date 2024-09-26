@@ -14,10 +14,10 @@ export const CartProductCard = ({ productsInCart, product }) => {
         setQuantity(getQuantity(productsInCart, product.id))
     }, [productsInCart, product])
     return <Grid2 container spacing={4} mb={2}
-        sx={{ border: "1px solid #DDDDDD", borderRadius: 3, width: "100%" }}>
+        sx={{ border: "1px solid #DDDDDD", borderRadius: 3, width: { xxs: 460, xs: 460, sm: 720, md: 520, lg: 680, xl: 780 } }}>
         <Grid2 size={3}>
             <Box sx={{
-                width: 200,
+                width: { lg: 200, md: 160, xs: 140, xxs: 100 },
                 height: 180,
                 borderTopLeftRadius: 12,
                 borderBottomLeftRadius: 12,
@@ -43,7 +43,7 @@ export const CartProductCard = ({ productsInCart, product }) => {
             <Stack direction="row" alignItems="flex-end">
                 <ValueControl page="cart" product={product} quantity={quantity} />
                 {product.discont_price ? <>
-                    <Typography variant="h3" ml={4} mr={2}>${product.discont_price}</Typography>
+                    <Typography variant="h3" sx={{ ml: { md: 4, xs: 2 }, mr: { md: 2, xs: 1 } }} >${product.discont_price}</Typography>
                     <Typography variant="crossed">${product.price}</Typography>
                 </> : <Typography variant="h3" ml={4}>${product.price}</Typography>}
             </Stack>

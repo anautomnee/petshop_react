@@ -43,8 +43,8 @@ export const Category = () => {
         <div className="container">
             <Typography mb={5} variant="h2">{shownProducts?.category?.title}</Typography>
             <FilterComponent />
-            <Grid2 mb={12} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                {shownProducts?.data?.length > 0 ? shownProducts.data.map(product => <Grid2 key={product?.id} size={3}><ProductCard page={categoryId} product={product} /></Grid2>) : <Typography>No products found</Typography>}
+            <Grid2 mb={12} container justifyContent="center" rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                {shownProducts?.data?.length > 0 ? shownProducts.data.map(product => <Grid2 key={product?.id} size="auto"><ProductCard page={categoryId} product={product} /></Grid2>) : <Typography>No products found</Typography>}
             </Grid2>
         </div>
     </MainLayout>
