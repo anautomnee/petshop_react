@@ -7,13 +7,16 @@ import { CartProductCard } from "../components/cart/CartProductCard"
 import { OrderDetails } from "../components/cart/OrderDetails"
 import { DialogComponent } from "../components/cart/DialogComponent"
 import { useEffect, useState } from "react"
-import { getTotal } from "../store/cartSlice"
+import { emptyCart, getTotal } from "../store/cartSlice"
 
 export const Cart = () => {
     const { productsInCart, total } = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const handleClickOpen = () => setOpen(true);
+    const handleClickOpen = () => {
+        dispatch(emptyCart())
+        setOpen(true)
+    };
     useEffect(() => {
         dispatch(getTotal())
     }, [dispatch, total])

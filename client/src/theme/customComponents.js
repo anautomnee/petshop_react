@@ -10,7 +10,10 @@ export const LinkBorderBtn = styled(Button)({
     color: "#8B8B8B",
     borderRadius: 6,
     fontSize: 16,
-    cursor: "pointer"
+    cursor: "pointer",
+    "&:hover": {
+        backgroundColor: "#dedcdc",
+    }
 })
 
 

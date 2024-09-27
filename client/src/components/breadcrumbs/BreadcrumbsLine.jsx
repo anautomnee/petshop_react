@@ -17,7 +17,7 @@ export const BreadcrumbsLine = ({ breadcrumbs }) => {
                         {!(ind === crumbs.length - 1) && <Box sx={{ borderBottom: "1px solid #DDDDDD", width: 16 }} />}
                     </Stack>
                 } else {
-                    return <LinkBorderBtn key={ind} sx={{ color: "#282828", cursor: "auto" }}>{breadcrumb.title}</LinkBorderBtn>
+                    return <LinkBorderBtn key={ind} sx={{ color: "#282828", cursor: "auto", "&:hover": { backgroundColor: "#FFFFFF" } }}>{breadcrumb.title}</LinkBorderBtn>
                 }
             }
             )}
