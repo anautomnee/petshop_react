@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../store/cartSlice"
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { API_URL } from "../App"
 
 export const ProductCard = ({ page, product }) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -89,7 +90,7 @@ export const ProductCard = ({ page, product }) => {
                         height: 284,
                         borderTopLeftRadius: 12,
                         borderTopRightRadius: 12,
-                        backgroundImage: `url('http://localhost:3333${product.image}')`,
+                        backgroundImage: `url('${API_URL}/${product.image}')`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPositionX: "center",

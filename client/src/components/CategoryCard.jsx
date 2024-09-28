@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
-
-const API_URL = "http://localhost:3333"
+import { API_URL } from "../App"
 
 export const CategoryCard = ({ category }) => {
     return <Box>

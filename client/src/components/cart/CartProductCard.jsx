@@ -6,6 +6,7 @@ import { getTotal, removeFromCart } from "../../store/cartSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getQuantity } from "../../utils";
+import { API_URL } from "../../App";
 
 export const CartProductCard = ({ productsInCart, product }) => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const CartProductCard = ({ productsInCart, product }) => {
                 height: 180,
                 borderTopLeftRadius: 12,
                 borderBottomLeftRadius: 12,
-                backgroundImage: `url('http://localhost:3333${product.image}')`,
+                backgroundImage: `url('${API_URL}${product.image}')`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPositionX: "center",

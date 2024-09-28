@@ -7,6 +7,7 @@ import axios from "axios"
 import { FilterComponent } from "../components/filter/FilterComponent"
 import { filter, useBreadcrumbs } from "../utils"
 import { useSelector } from "react-redux"
+import { API_URL } from "../App"
 
 export const Category = () => {
     const [categoryProducts, setCategoryProducts] = useState([]);
@@ -19,7 +20,7 @@ export const Category = () => {
     useEffect(() => {
         async function getProductsByCategory(id) {
             try {
-                const response = await axios.get(`http://localhost:3333/categories/${id}`);
+                const response = await axios.get(`${API_URL}/categories/${id}`);
                 setCategoryProducts(response.data);
                 setShownProducts(response.data);
             } catch (error) {

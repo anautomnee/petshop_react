@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getCategories, getProducts } from "./store/actionCreators";
 import { BreadcrumbsContext } from "./context/breadcrumbsContext";
 
+export const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
 
 function App() {
   const [crumbs, setCrumbs] = useState([])

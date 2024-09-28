@@ -8,6 +8,7 @@ import { SaleBadge } from "../theme/customComponents";
 import { ValueControl } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getTotal } from "../store/cartSlice";
+import { API_URL } from "../App";
 
 export const Product = () => {
     const [product, setProduct] = useState({});
@@ -17,7 +18,6 @@ export const Product = () => {
     const descriptionRef = useRef(null);
     const dispatch = useDispatch();
     const { productId } = useParams();
-    const API_URL = "http://localhost:3333";
     const discount = getDiscount(product?.price, product?.discont_price);
 
     useEffect(() => {
