@@ -253,4 +253,13 @@ a {
   .description {
     max-width: 320px;
   }
+  .cartForm {
+    max-width: 340px;
+  }
+  .firstOrderForm input {
+    max-width: 276px;
+  }
+  .firstOrderForm button {
+    max-width: 276px;
+  }
 }
