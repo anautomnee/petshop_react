@@ -256,10 +256,10 @@ a {
   .cartForm {
     max-width: 340px;
   }
-  .firstOrderForm input {
+  .firstOrderForm input, .cartForm input {
     max-width: 276px;
   }
-  .firstOrderForm button {
+  .firstOrderForm button, .cartForm button {
     max-width: 276px;
   }
 }
