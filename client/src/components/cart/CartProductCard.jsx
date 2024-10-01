@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getTotal, removeFromCart } from "../../store/cartSlice";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getQuantity } from "../../utils";
+import { getQuantity } from "../../utils/math";
 import { API_URL } from "../../App";
 
 export const CartProductCard = ({ productsInCart, product }) => {

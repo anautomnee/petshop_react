@@ -3,7 +3,8 @@ import { MainLayout } from "../layouts/MainLayout"
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { getDiscount, getQuantity, useBreadcrumbs } from "../utils";
+import { getDiscount, getQuantity } from "../utils/math";
+import { useBreadcrumbs } from "../utils/hooks"
 import { SaleBadge } from "../theme/customComponents";
 import { ValueControl } from "../components";
 import { useDispatch, useSelector } from "react-redux";

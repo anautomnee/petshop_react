@@ -1,7 +1,7 @@
 import { Box, Button, Snackbar, Stack, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import { SaleBadge } from "../theme/customComponents"
-import { getDiscount, getQuantity } from "../utils"
+import { getDiscount, getQuantity } from "../utils/math"
 import React, { useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../store/cartSlice"

@@ -3,7 +3,8 @@ import { MainLayout } from "../layouts/MainLayout"
 import { useSelector } from "react-redux"
 import { ProductCard } from "../components/ProductCard"
 import { FilterComponent } from "../components/filter/FilterComponent"
-import { filter, useBreadcrumbs } from "../utils"
+import { filter } from "../utils/filter"
+import { useBreadcrumbs } from "../utils/hooks"
 import { useEffect, useState } from "react"
 
 export const Products = () => {
