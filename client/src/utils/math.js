@@ -4,7 +4,7 @@ export const getDiscount = (original_price, discont_price) => {
 
 export const getQuantity = (productsInCart, productId) => {
     if(!productsInCart.length) {
-        return;
+        return 0;
     }
     const currentProduct = productsInCart.find(product => product.id === Number(productId));
     return currentProduct ? currentProduct.quantity : 0;
