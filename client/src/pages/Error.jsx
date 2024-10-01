@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom"
 import { Button, Stack, Typography } from "@mui/material"
 import { MainLayout } from "../layouts/MainLayout"
 import errorPic from "../static/404.png"
-import { Link } from "react-router-dom"
 
 export const Error = () => {
     return <MainLayout>

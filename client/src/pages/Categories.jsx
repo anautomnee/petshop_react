@@ -1,8 +1,8 @@
-import { Grid2, Typography } from "@mui/material"
 import { useSelector } from "react-redux"
-import { CategoryCard } from "../components/CategoryCard"
-import { MainLayout } from "../layouts/MainLayout"
+import { Grid2, Typography } from "@mui/material"
 import { useBreadcrumbs } from "../utils/hooks"
+import { MainLayout } from "../layouts/MainLayout"
+import { CategoryCard } from "../components/CategoryCard"
 
 export const Categories = () => {
     const { categories } = useSelector(state => state.categories);

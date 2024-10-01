@@ -1,14 +1,14 @@
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getTotal } from "../store/cartSlice";
+import axios from "axios";
 import { Box, Button, Stack, Typography } from "@mui/material"
 import { MainLayout } from "../layouts/MainLayout"
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
 import { getDiscount, getQuantity } from "../utils/math";
 import { useBreadcrumbs } from "../utils/hooks"
 import { SaleBadge } from "../theme/customComponents";
 import { ValueControl } from "../components";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getTotal } from "../store/cartSlice";
 import { API_URL } from "../App";
 
 export const Product = () => {

@@ -1,14 +1,14 @@
-import { Grid2, Typography } from "@mui/material"
-import { MainLayout } from "../layouts/MainLayout"
-import { useParams } from "react-router-dom"
-import { ProductCard } from "../components/ProductCard"
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 import axios from "axios"
-import { FilterComponent } from "../components/filter/FilterComponent"
+import { Grid2, Typography } from "@mui/material"
 import { filter } from "../utils/filter"
 import { useBreadcrumbs } from "../utils/hooks"
-import { useSelector } from "react-redux"
 import { API_URL } from "../App"
+import { MainLayout } from "../layouts/MainLayout"
+import { ProductCard } from "../components/ProductCard"
+import { FilterComponent } from "../components/filter/FilterComponent"
 
 export const Category = () => {
     const [categoryProducts, setCategoryProducts] = useState([]);

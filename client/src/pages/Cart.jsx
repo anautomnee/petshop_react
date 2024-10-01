@@ -1,13 +1,13 @@
-import { Box, Button, Grid2, Stack, Typography } from "@mui/material"
-import { MainLayout } from "../layouts/MainLayout"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { LinkBorderBtn } from "../theme/customComponents"
 import { useDispatch, useSelector } from "react-redux"
+import { emptyCart, getTotal } from "../store/cartSlice"
+import { Box, Button, Grid2, Stack, Typography } from "@mui/material"
+import { LinkBorderBtn } from "../theme/customComponents"
+import { MainLayout } from "../layouts/MainLayout"
 import { CartProductCard } from "../components/cart/CartProductCard"
 import { OrderDetails } from "../components/cart/OrderDetails"
 import { DialogComponent } from "../components/cart/DialogComponent"
-import { useEffect, useState } from "react"
-import { emptyCart, getTotal } from "../store/cartSlice"
 
 export const Cart = () => {
     const { productsInCart, total } = useSelector(state => state.cart);

@@ -1,11 +1,11 @@
-import { Grid2, Typography } from "@mui/material"
-import { MainLayout } from "../layouts/MainLayout"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { ProductCard } from "../components/ProductCard"
-import { FilterComponent } from "../components/filter/FilterComponent"
+import { Grid2, Typography } from "@mui/material"
 import { filter } from "../utils/filter"
 import { useBreadcrumbs } from "../utils/hooks"
-import { useEffect, useState } from "react"
+import { MainLayout } from "../layouts/MainLayout"
+import { ProductCard } from "../components/ProductCard"
+import { FilterComponent } from "../components/filter/FilterComponent"
 
 export const Products = () => {
     const [shownProducts, setShownProducts] = useState([])
